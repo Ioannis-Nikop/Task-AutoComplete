@@ -7,7 +7,7 @@ For the purpose of this exercise, I’ve built a simple auto-complete field for 
 ### Features ###
 
 - The matching text from the user’s input is highlighted on the suggestion list items.
-- The first result is set as active (selected) and the user can use the UP and DOWN arrows and then ENTER keys to select an option.
+- The first result is set as active (selected) and the user can use the UP and DOWN arrows and then ENTER key to select an option.
 - The suggestion list also allows the user to click on one of the options to select it and fill the input area with the value.
 
 The application was initially created using the create-react-app command using the option for TypeScript. To accelerate the styling development I went with TailwindCSS combined with daisyUI with the latter one providing theming and components based on TailwindCSS.
