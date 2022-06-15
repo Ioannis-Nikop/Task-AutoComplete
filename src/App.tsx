@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import AutoComplete from './components/AutoComplete'
+import json from './countries.json'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [suggestions, setSuggestions] = useState([] as string[])
+
+	useEffect(() => {
+		getSuggestions()
+	}, [])
+
+	// Having the function return a Promise to simulate an async API call
+	const getSuggestions = () => {
+		return new Promise(resolve => {
+			const values = json && json.countries && json.countries.map(item => {
+				return item.name
+			})
+			setSuggestions(values)
+			resolve('resolved')
+		})
+	}
+
+	return (
+		<div className='min-h-screen bg-base-200 p-4'>
+			<AutoComplete
+				suggestions = {suggestions}
+			/>
+		</div>
+	)
 }
 
-export default App;
+export default App
